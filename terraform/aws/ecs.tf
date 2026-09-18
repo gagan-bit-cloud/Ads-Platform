@@ -27,19 +27,23 @@ resource "aws_ecs_task_definition" "app" {
       ]
 
       environment = [
-        {
-          name  = "APP_ENV"
-          value = "production"
-        },
-        {
-          name  = "APP_HOST"
-          value = "0.0.0.0"
-        },
-        {
-          name  = "APP_PORT"
-          value = "8000"
-        }
-      ]
+  {
+    name  = "APP_ENV"
+    value = "production"
+  },
+  {
+    name  = "APP_HOST"
+    value = "0.0.0.0"
+  },
+  {
+    name  = "APP_PORT"
+    value = "8000"
+  },
+  {
+    name = "DATABASE_URL"
+    value = "postgresql://ads_user:${var.db_password}@${aws_db_instance.postgres.address}:5432/ads_platform"
+  }
+]
     }
   ])
 }
