@@ -11,7 +11,3 @@ COPY . .
 EXPOSE 8000
 
 CMD ["python", "run.py"]
-
-ARG APP_VERSION=development
-
-ENV APP_VERSION=$APP_VERSION
